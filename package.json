@@ -4,8 +4,10 @@
   "description": "ouebairtaycay project =====================",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src",
-    "test": "npm run lint"
+    "coverage": "nyc tape ./test/*.js",
+    "pretest": "eslint src test",
+    "test": "npm run coverage",
+    "nyan": "tape ./test/*.js | tnyan"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,10 @@
   "homepage": "https://github.com/GauthierD-/ouebairtaycay#readme",
   "devDependencies": {
     "eslint": "^3.1.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint-config-airbnb-base": "^5.0.0",
+    "eslint-plugin-import": "^1.11.1",
+    "nyc": "^7.1.0-candidate3",
+    "tap-nyan": "0.0.2",
+    "tape": "^4.6.0"
   }
 }

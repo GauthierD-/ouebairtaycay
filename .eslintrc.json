@@ -1,7 +1,14 @@
 {
-    "extends": "airbnb",
+    "extends": "airbnb-base",
     "installedESLint": true,
-    "plugins": [
-        "react"
-    ]
+    "rules": {
+      "no-console": "off",
+      "import/no-extraneous-dependencies": [
+        "error", {
+          "devDependencies": true,
+          "optionalDependencies": true,
+          "peerDependencies": true
+        }
+      ]
+    }
 }
