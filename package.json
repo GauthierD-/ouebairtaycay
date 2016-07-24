@@ -1,0 +1,29 @@
+{
+  "name": "ouebairtaycay",
+  "version": "1.0.0",
+  "description": "ouebairtaycay project =====================",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GauthierD-/ouebairtaycay.git"
+  },
+  "keywords": [
+    "webrtc",
+    "nodejs"
+  ],
+  "author": "GauthierD-",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GauthierD-/ouebairtaycay/issues"
+  },
+  "homepage": "https://github.com/GauthierD-/ouebairtaycay#readme",
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-react": "^5.2.2"
+  }
+}
