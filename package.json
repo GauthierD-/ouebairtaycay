@@ -2,13 +2,15 @@
   "name": "ouebairtaycay",
   "version": "1.0.0",
   "description": "ouebairtaycay project =====================",
-  "main": "src/index.js",
+  "main": "server/app.js",
   "scripts": {
     "coverage": "nyc tape ./test/*.js",
-    "pretest": "eslint src test",
+    "pretest": "eslint server client test",
     "test": "npm run coverage",
     "nyan": "tape ./test/*.js | tnyan",
-    "start": "http-server ./src/client -p 1234"
+    "build": "babel client --out-dir client_babel",
+    "prestart": "npm run build && cp client/index.html client_babel/index.html",
+    "start": "node server/app.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
   },
   "homepage": "https://github.com/GauthierD-/ouebairtaycay#readme",
   "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
@@ -33,6 +37,8 @@
     "tape": "^4.6.0"
   },
   "dependencies": {
-    "http-server": "^0.9.0"
+    "lodash": "^4.14.0",
+    "node-static": "^0.7.7",
+    "socket.io": "^1.4.8"
   }
 }
