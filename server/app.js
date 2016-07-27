@@ -1,37 +1,46 @@
-const path = require('path');
-const _ = require('lodash');
 const nodeStatic = require('node-static');
-const http = require('http');
 const socketIO = require('socket.io');
+const path = require('path');
+const http = require('http');
+const _ = require('lodash');
+const messageHandler = require('./message_handler');
+
 
 const fileServer = new nodeStatic.Server(path.resolve(`${__dirname}/../client_babel`));
 const app = http.createServer((req, res) => {
   fileServer.serve(req, res);
 });
 
-app.listen(1234, () => console.log('localhost:1234'));
+app.listen(1234, () => {
+  console.log('localhost:1234');
+});
+
 
 const io = socketIO.listen(app);
+const socketUsers = {};
 
-const users = {};
 
 io.sockets.on('connection', (socket) => {
   console.log(`Connection socket: ${socket.id}`);
-  users[socket.id] = { id: socket.id, connected: true };
+
+  socketUsers[socket.id] = {
+    id: socket.id,
+    connected: true,
+  };
 
   socket.on('users:new', () => {
+    const users = _.omit(socketUsers, [socket.id]);
     io.sockets.emit('users:list', users);
   });
 
-  socket.on('user:update', (userObj) => {
-    users[socket.id] = Object.assign({}, users[socket.id],
-      _.omit(userObj, ['id', 'connected'])
-    );
-    socket.emit('users:update', users);
+
+  socket.on('message', (message) => {
+    messageHandler(socket, message, io);
   });
 
+
   socket.on('disconnect', () => {
-    delete users[socket.id];
+    delete socketUsers[socket.id];
     console.log(`user ${socket.id} disconnected`);
   });
 });
