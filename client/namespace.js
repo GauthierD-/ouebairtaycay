@@ -1,3 +1,6 @@
 window.oueb = {
-  dom: { },
+  dom: { }, // dom functions
+  peers: { }, // list
+  caller: { },
+  callee: { },
 };
