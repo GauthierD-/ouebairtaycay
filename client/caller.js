@@ -37,7 +37,7 @@ const initCaller = (socket, peerId, callerId) => {
 
   pc.createOffer((offer) => {
     pc.setLocalDescription(offer);
-    console.log('send offer');
+    console.log('send offer to', peerId);
     signalingChannel.sendOffer(offer, peerId);
   }, (e) => {
     console.error(e);
@@ -56,9 +56,11 @@ const initCaller = (socket, peerId, callerId) => {
   };
 
   commChannel.onmessage = (message) => {
-    // DOM PROCESS HERE
-    console.log('MESSAGE ==>', message);
+    console.log('CALLER', message);
+    oueb.dom.addText(`God: ${message.data}`);
   };
+
+  oueb.com.caller = commChannel;
 };
 
 oueb.caller.init = initCaller;

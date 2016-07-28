@@ -20,15 +20,9 @@ const signaling = {
   sendAnswer(answer, destination) {
     this.sendMessage('answer', answer, destination);
   },
-  onICECandidate() {
-    // should override
-  },
-  onOffer() {
-    // should override
-  },
-  onAnswer() {
-    // should override
-  },
+  onICECandidate() { },
+  onOffer() { },
+  onAnswer() { },
 };
 
 const signalingFactory = (socket, id) => {

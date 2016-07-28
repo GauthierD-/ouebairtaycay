@@ -3,4 +3,5 @@ window.oueb = {
   peers: { }, // list
   caller: { },
   callee: { },
+  com: { },
 };

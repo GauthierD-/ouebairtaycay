@@ -30,7 +30,8 @@ io.sockets.on('connection', (socket) => {
 
   socket.on('users:new', () => {
     const users = _.omit(socketUsers, [socket.id]);
-    io.sockets.emit('users:list', users, socketUsers[socket.id]);
+    // io.sockets.emit('users:list', users, socketUsers[socket.id]);
+    socket.emit('users:list', users, socketUsers[socket.id]);
   });
 
 

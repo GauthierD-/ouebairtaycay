@@ -9,11 +9,13 @@
       } 
       #users { 
         width: 20%;
-        background-color: aquamarine;
+        height: 300px;
+        color: white;
+        background-color: rgb(48, 62, 76);
       } 
-      #text { 
+      #box { 
         width: 80%;
-        background-color: yellow;
+        background-color: aliceblue;
       } 
     </style> 
   </head>
@@ -23,11 +25,15 @@
     <div id="body">
 
       <div id="users">
+        <!-- list users connected -->
       </div>
 
-      <div id="text">
-         <div>text text</div>
-         <input id="myText" type="text">
+      <div id="box">
+         <div id="myTextBox">
+            <!-- create text inside -->
+         </div>
+         <input id="myMsg" type="text">
+         <button id="myBtn">Send</button>
       </div>
 
     </div>

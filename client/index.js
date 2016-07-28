@@ -9,4 +9,6 @@ socket.on('users:list', (users, currentUser) => {
   oueb.dom.fillList(users, (id) => {
     oueb.caller.init(socket, id, currentUser.id);
   });
+
+  oueb.callee.init(socket, currentUser.id);
 });
