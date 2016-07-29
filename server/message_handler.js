@@ -2,6 +2,7 @@
 
 
 const onOffer = (offer, destination, socket) => {
+  console.log('Offer from peer:', socket.id, 'to peer', destination);
   socket
     .to(destination)
     .emit('message', {
@@ -35,6 +36,14 @@ const onAnswer = (answer, destination, socket) => {
 };
 
 const messageHandler = (socket, message) => {
+  if (!socket) {
+    throw new TypeError('invalid socket');
+  }
+
+  if (!message) {
+    throw new TypeError('invalid message');
+  }
+
   switch (message.type) {
     case 'offer':
       onOffer(message.offer, message.destination, socket);
@@ -46,7 +55,7 @@ const messageHandler = (socket, message) => {
       onAnswer(message.answer, message.destination, socket);
       break;
     default:
-      console.log('ERROR: invalid message');
+      throw new TypeError('invalid message type');
   }
 };
 

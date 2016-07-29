@@ -4,7 +4,7 @@
   "description": "ouebairtaycay project =====================",
   "main": "server/app.js",
   "scripts": {
-    "coverage": "nyc tape ./test/*.js",
+    "coverage": "nyc tape ./test/*.js | tap-spec",
     "pretest": "eslint server client test",
     "test": "npm run coverage",
     "nyan": "tape ./test/*.js | tnyan",
@@ -33,7 +33,9 @@
     "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
     "nyc": "^7.1.0-candidate3",
+    "sinon": "^1.17.5",
     "tap-nyan": "0.0.2",
+    "tap-spec": "^4.1.1",
     "tape": "^4.6.0"
   },
   "dependencies": {

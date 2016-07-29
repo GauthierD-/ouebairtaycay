@@ -1,4 +1,4 @@
-/* global oueb */
+/* global oueb, document */
 
 const myBtn = document.querySelector('#myBtn');
 const myMsg = document.querySelector('#myMsg');

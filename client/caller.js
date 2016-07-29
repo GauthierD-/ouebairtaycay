@@ -1,4 +1,4 @@
-/* global oueb */
+/* global oueb, window */
 
 const initCaller = (socket, peerId, callerId) => {
   const RTCPeerConnection = window.webkitRTCPeerConnection;

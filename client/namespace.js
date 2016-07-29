@@ -1,3 +1,5 @@
+/* global window */
+
 window.oueb = {
   dom: { }, // dom functions
   peers: { }, // list
