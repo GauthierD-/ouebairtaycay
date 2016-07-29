@@ -4,9 +4,10 @@
   "description": "ouebairtaycay project =====================",
   "main": "server/app.js",
   "scripts": {
-    "coverage": "nyc tape ./test/*.js | tap-spec",
+    "coverage": "nyc --reporter=lcov tape ./test/*.js",
     "pretest": "eslint server client test",
-    "test": "npm run coverage",
+    "test": "nyc --reporter=lcov tape ./test/*.js | tap-spec",
+    "posttest": "nyc report",
     "nyan": "tape ./test/*.js | tnyan",
     "build": "babel client --out-dir client_babel",
     "prestart": "npm run build && cp client/index.html client_babel/index.html",
