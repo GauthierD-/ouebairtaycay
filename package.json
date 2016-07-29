@@ -12,6 +12,9 @@
     "prestart": "npm run build && cp client/index.html client_babel/index.html",
     "start": "node server/app.js"
   },
+  "precommit": {
+    "run": ["test"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GauthierD-/ouebairtaycay.git"
@@ -33,6 +36,7 @@
     "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
     "nyc": "^7.1.0-candidate3",
+    "pre-commit": "^1.1.3",
     "sinon": "^1.17.5",
     "tap-nyan": "0.0.2",
     "tap-spec": "^4.1.1",
